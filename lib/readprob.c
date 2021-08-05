@@ -56,7 +56,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   if (buf == NULL)
     {
       if (printlevel >= 1)
-        printf("Storage allocation failed! (1)\n");
+        printf("Storage allocation failed in readprob (1)!\n");
       exit(205);
     };
 
@@ -181,7 +181,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   if (pC->blocks == NULL)
     {
       if (printlevel >= 1)
-        printf("Storage allocation failed! (2)\n");
+        printf("Storage allocation failed in readprob (2)!\n");
       exit(205);
     }
 
@@ -194,7 +194,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   if (myconstraints == NULL)
     {
       if (printlevel >= 1)
-        printf("Storage allocation failed! (3)\n");
+        printf("Storage allocation failed in readprob (3)!\n");
       exit(205);
     };
   
@@ -211,7 +211,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   if (*pa == NULL)
     {
       if (printlevel >= 1)
-        printf("Storage allocation failed! (4)\n");
+        printf("Storage allocation failed in readprob (4)!\n");
       exit(205);
     };
 
@@ -255,7 +255,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
 	      if (pC->blocks[blk].data.vec == NULL)
 		{
                   if (printlevel >= 1)
-                    printf("Storage allocation failed! (5)\n");
+                    printf("Storage allocation failed in readprob (5)!\n");
 		  exit(205);
 		};
 	      for (i=1; i<=abs(blksz); i++)
@@ -286,7 +286,7 @@ b	       */
 	      if (pC->blocks[blk].data.mat == NULL)
 		{
                   if (printlevel >= 1)
-                    printf("Storage allocation failed! (6)\n");
+                    printf("Storage allocation failed in readprob (6)!\n");
 		  exit(205);
 		};
 
@@ -424,7 +424,7 @@ b	       */
           if (p->entries == NULL)
 	    {
               if (printlevel >= 1)
-                printf("Storage allocation failed! (7)\n");
+                printf("Storage allocation failed in readprob (7)!\n");
 	      exit(205);
 	    };
 
@@ -433,7 +433,7 @@ b	       */
           if (p->iindices == NULL)
 	    {
               if (printlevel >= 1)
-                printf("Storage allocation failed! (8)\n");
+                printf("Storage allocation failed in readprob (8)!\n");
 	      exit(205);
 	    };
 
@@ -442,7 +442,7 @@ b	       */
           if (p->jindices == NULL)
 	    {
               if (printlevel >= 1)
-                printf("Storage allocation failed! (9)\n");
+                printf("Storage allocation failed in readprob (9)!\n");
 	      exit(205);
 	    };
 
@@ -889,7 +889,7 @@ void countentry(constraints,matno,blkno,blocksize)
       q=(struct sparseblock *)malloc(sizeof(struct sparseblock));
       if (q==NULL)
 	{
-          printf("Storage allocation failed! (11)\n");
+          printf("Storage allocation failed in readprob (11)!\n");
 	  exit(205);
 	};
       /*
