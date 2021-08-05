@@ -35,7 +35,7 @@ void initsoln(n,k,C,a,constraints,pX0,py0,pZ0)
 
   if (py0 == NULL)
     {
-      printf("Storage allocation failed!\n");
+      printf("Storage allocation failed in initsoln (1)!\n");
       exit(205);
     };
 
@@ -53,7 +53,7 @@ void initsoln(n,k,C,a,constraints,pX0,py0,pZ0)
   normsofA=(double *)malloc(sizeof(double)*(k+1));
   if (normsofA == NULL)
     {
-      printf("Storage allocation failed!\n");
+      printf("Storage allocation failed in initsoln (2)!\n");
       exit(205);
     };
 
