@@ -46,6 +46,21 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   double *tempdiag;
 
   /*
+   * This constant allows for up to 500000*20=10,000,000 byte long lines.
+   * You might see a line this long in a problem with 500000 constraints.
+   */
+  
+  buflen=800000000;
+
+  buf=(char *)malloc(buflen*sizeof(char));
+  if (buf == NULL)
+    {
+      if (printlevel >= 1)
+        printf("Storage allocation failed! (1)\n");
+      exit(205);
+    };
+
+  /*
    * Open the file for reading, and determine the length of the longest
    * line.
    */
@@ -57,21 +72,6 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
       if (printlevel >= 1)
         printf("Couldn't open problem file for reading! \n");
       exit(201);
-    };
-
-  /*
-   * This constant allows for up to 500000*20=10,000,000 byte long lines.
-   * You might see a line this long in a problem with 500000 constraints.
-   */
-  
-  buflen=8000000;
-
-  buf=(char *)malloc(buflen*sizeof(char));
-  if (buf == NULL)
-    {
-      if (printlevel >= 1)
-        printf("Storage allocation failed!\n");
-      exit(205);
     };
 
   /*
@@ -181,7 +181,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   if (pC->blocks == NULL)
     {
       if (printlevel >= 1)
-        printf("Storage allocation failed!\n");
+        printf("Storage allocation failed! (2)\n");
       exit(205);
     }
 
@@ -194,7 +194,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   if (myconstraints == NULL)
     {
       if (printlevel >= 1)
-        printf("Storage allocation failed!\n");
+        printf("Storage allocation failed! (3)\n");
       exit(205);
     };
   
@@ -211,7 +211,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   if (*pa == NULL)
     {
       if (printlevel >= 1)
-        printf("Storage allocation failed!\n");
+        printf("Storage allocation failed! (4)\n");
       exit(205);
     };
 
@@ -255,7 +255,7 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
 	      if (pC->blocks[blk].data.vec == NULL)
 		{
                   if (printlevel >= 1)
-                    printf("Storage allocation failed!\n");
+                    printf("Storage allocation failed! (5)\n");
 		  exit(205);
 		};
 	      for (i=1; i<=abs(blksz); i++)
@@ -286,7 +286,7 @@ b	       */
 	      if (pC->blocks[blk].data.mat == NULL)
 		{
                   if (printlevel >= 1)
-                    printf("Storage allocation failed!\n");
+                    printf("Storage allocation failed! (6)\n");
 		  exit(205);
 		};
 
@@ -424,7 +424,7 @@ b	       */
           if (p->entries == NULL)
 	    {
               if (printlevel >= 1)
-                printf("Storage allocation failed!\n");
+                printf("Storage allocation failed! (7)\n");
 	      exit(205);
 	    };
 
@@ -433,7 +433,7 @@ b	       */
           if (p->iindices == NULL)
 	    {
               if (printlevel >= 1)
-                printf("Storage allocation failed!\n");
+                printf("Storage allocation failed! (8)\n");
 	      exit(205);
 	    };
 
@@ -442,7 +442,7 @@ b	       */
           if (p->jindices == NULL)
 	    {
               if (printlevel >= 1)
-                printf("Storage allocation failed!\n");
+                printf("Storage allocation failed! (9)\n");
 	      exit(205);
 	    };
 
@@ -839,7 +839,7 @@ void countentry(constraints,matno,blkno,blocksize)
       p=(struct sparseblock *)malloc(sizeof(struct sparseblock));
       if (p==NULL)
 	{
-          printf("Storage allocation failed!\n");
+          printf("Storage allocation failed! (10)\n");
 	  exit(205);
 	};
       p->constraintnum=matno;
@@ -889,7 +889,7 @@ void countentry(constraints,matno,blkno,blocksize)
       q=(struct sparseblock *)malloc(sizeof(struct sparseblock));
       if (q==NULL)
 	{
-          printf("Storage allocation failed!\n");
+          printf("Storage allocation failed! (11)\n");
 	  exit(205);
 	};
       /*
