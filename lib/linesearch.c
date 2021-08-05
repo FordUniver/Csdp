@@ -44,7 +44,7 @@ double linesearch(n,dX,work1,work2,work3,cholinv,q,z,workvec,
   lanczosvectors=(double *) malloc((LANCZOSITS+1)*n*sizeof(double));
   if (lanczosvectors==NULL)
     {
-      printf("Storage Allocation Failed!\n");
+      printf("Storage Allocation Failed in linesearch!\n");
       exit(205);
     };
 
