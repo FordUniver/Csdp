@@ -108,7 +108,7 @@ void alloc_mat_packed(A,pB)
   pB->blocks=(struct blockrec *)malloc(sizeof(struct blockrec)*(A.nblocks+1));
   if (pB->blocks == NULL)
     {
-      printf("Storage allocation failed!\n");
+      printf("Storage allocation failed in packed (1)!\n");
       exit(205);
     };
   /*
@@ -126,7 +126,7 @@ void alloc_mat_packed(A,pB)
 	  pB->blocks[blk].data.vec=(double *)malloc(sizeof(double)*(A.blocks[blk].blocksize+1));
 	  if (pB->blocks[blk].data.vec == NULL)
 	    {
-	      printf("Storage allocation failed!\n");
+	      printf("Storage allocation failed in packed (2)!\n");
 	      exit(205);
 	    };
 	  break;
@@ -137,7 +137,7 @@ void alloc_mat_packed(A,pB)
 	  pB->blocks[blk].data.mat=(double *)malloc(sizeof(double)*n*(n+1)/2);
 	  if (pB->blocks[blk].data.mat == NULL)
 	    {
-	      printf("Storage allocation failed!\n");
+	      printf("Storage allocation failed in packed (3)!\n");
 	      exit(205);
 	    };
 	  break;
