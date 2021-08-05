@@ -35,7 +35,7 @@ int read_sol(fname,n,k,C,pX,py,pZ)
   *py=(double *)malloc(sizeof(double)*(k+1));
   if (*py == NULL)
     {
-      printf("Storage allocation failed!\n");
+      printf("Storage allocation failed in readsol!\n");
       exit(205);
     };
 
