@@ -68,6 +68,9 @@ int main(argc,argv)
    */
   ret=read_prob(argv[1],&n,&k,&C,&a,&constraints,1);
 
+  printf("n is %d \n", n);
+  printf("k is %d \n", k);
+	
   if (ret != 0)
     {
       printf("Giving up.\n");
