@@ -100,7 +100,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
   ptr=(struct sparseblock *)malloc(sizeof(struct sparseblock));
   if (ptr == NULL)
     {
-      printf("Storage Allocation Failed!\n");
+      printf("Storage Allocation Failed in makefill (1)!\n");
       exit(205);
     };
   pfill->blocks=ptr;
@@ -114,7 +114,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
       ptr->next=(struct sparseblock *)malloc(sizeof(struct sparseblock));
       if (ptr->next == NULL)
 	{
-	  printf("Storage Allocation Failed!\n");
+	  printf("Storage Allocation Failed in makefill (2)!\n");
 	  exit(205);
 	};
       ptr=ptr->next;
@@ -141,7 +141,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
 	  ptr->entries=(double *) malloc((ptr->blocksize+1)*sizeof(double));
 	  if (ptr->entries == NULL)
 	    {
-	      printf("Storage Allocation Failed!\n");
+	      printf("Storage Allocation Failed in makefill (3)!\n");
 	      exit(205);
 	    };
 
@@ -149,7 +149,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
 
 	  if (ptr->iindices == NULL)
 	    {
-	      printf("Storage Allocation Failed!\n");
+	      printf("Storage Allocation Failed in makefill (4)!\n");
 	      exit(205);
 	    };
 
@@ -157,7 +157,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
 
 	  if (ptr->jindices == NULL)
 	    {
-	      printf("Storage Allocation Failed!\n");
+	      printf("Storage Allocation Failed in makefill (5)!\n");
 	      exit(205);
 	    };
 
@@ -187,7 +187,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
 	  ptr->entries=(double *)malloc((ptr->numentries+1)*sizeof(double));
 	  if (ptr == NULL)
 	    {
-	      printf("Storage Allocation Failed!\n");
+	      printf("Storage Allocation Failed in makefill (6)!\n");
 	      exit(205);
 	    };
 
@@ -195,7 +195,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
 
 	  if (ptr->iindices == NULL)
 	    {
-	      printf("Storage Allocation Failed!\n");
+	      printf("Storage Allocation Failed in makefill (7)!\n");
 	      exit(205);
 	    };
 
@@ -203,7 +203,7 @@ void makefill(k,C,constraints,pfill,work1,printlevel)
 
 	  if (ptr->jindices == NULL)
 	    {
-	      printf("Storage Allocation Failed!\n");
+	      printf("Storage Allocation Failed in makefill (8)!\n");
 	      exit(205);
 	    };
 
