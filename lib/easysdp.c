@@ -90,7 +90,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
   besty=(double *)malloc(sizeof(double)*(k+1));
    if (besty == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (1)!\n");
        exit(205);
      };
 
@@ -104,7 +104,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec1 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (2)!\n");
        exit(205);
      };
 
@@ -118,7 +118,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec2 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (3)!\n");
        exit(205);
      };
 
@@ -132,7 +132,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec3 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (4)!\n");
        exit(205);
      };
 
@@ -146,7 +146,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec4 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (5)!\n");
        exit(205);
      };
 
@@ -160,7 +160,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec5 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (6)!\n");
        exit(205);
      };
 
@@ -174,7 +174,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec6 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (7)!\n");
        exit(205);
      };
 
@@ -188,7 +188,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec7 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (8)!\n");
        exit(205);
      };
 
@@ -202,7 +202,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (workvec8 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (9)!\n");
        exit(205);
      };
 
@@ -217,7 +217,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
      };
    if (diagO == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (11)!\n");
        exit(205);
      };
 
@@ -226,28 +226,28 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
    rhs=malloc(sizeof(double)*(k+1));
    if (rhs == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (12)!\n");
        exit(205);
      };
 
    dy=malloc(sizeof(double)*(k+1));
    if (dy == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (13)!\n");
        exit(205);
      };
 
    dy1=malloc(sizeof(double)*(k+1));
    if (dy1 == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (14)!\n");
        exit(205);
      };
 
    Fp=malloc(sizeof(double)*(k+1));
    if (Fp == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (15)!\n");
        exit(205);
      };
 
@@ -273,7 +273,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
    O=malloc(sizeof(double)*ldam*ldam);
    if (O == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (16)!\n");
        exit(205);
      };
 
@@ -399,7 +399,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
    byblocks=(struct sparseblock **)malloc((C.nblocks+1)*sizeof(struct sparseblock *));
    if (byblocks == NULL)
      {
-       printf("Storage Allocation Failed!\n");
+       printf("Storage Allocation Failed in easysdp (17)!\n");
        exit(205);
      };
 
