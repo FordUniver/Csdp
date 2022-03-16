@@ -15,7 +15,7 @@ export CFLAGS=-march=native -mtune=native -Ofast -fopenmp -ansi -Wall -DBIT64 -D
 #
 # LIBS settings for 64 bit Linux/unix systems.
 #
-export LIBS=-static -L../lib -lsdp -L/home/cspiegel/OpenBLAS/build/opt/OpenBLAS/lib -lopenblas -lm
+export LIBS=-static -L../lib -lsdp -llapack -lblas -lm
 #
 #
 # On most systems, this should handle everything.
