@@ -11,11 +11,11 @@
 #
 # CFLAGS settings for 64 bit Linux/unix systems.
 #-m64
-export CFLAGS=-march=native -mtune=native -Ofast -fopenmp -ansi -Wall -DBIT64 -DUSEOPENMP -DSETNUMTHREADS -DUSESIGTERM -DUSEGETTIME -I../include
+# export CFLAGS=-march=native -mtune=native -Ofast -fopenmp -ansi -Wall -DBIT64 -DUSEOPENMP -DSETNUMTHREADS -DUSESIGTERM -DUSEGETTIME -I../include
 #
 # LIBS settings for 64 bit Linux/unix systems.
 #
-export LIBS=-static -L../lib -lsdp -L/home/cspiegel/OpenBLAS/build/opt/OpenBLAS/lib -lopenblas -lm
+# export LIBS=-static -L../lib -lsdp -L/home/cspiegel/OpenBLAS/build/opt/OpenBLAS/lib -lopenblas -lm
 #
 #
 # On most systems, this should handle everything.
