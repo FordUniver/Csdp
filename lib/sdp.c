@@ -282,6 +282,7 @@ int sdp(n,k,C,a,constant_offset,constraints,byblocks,fill,X,y,Z,cholxinv,
    * Compute Cholesky factors of X and Z.
    */
 
+  DEBUGPRINT("sdp: initial Cholesky factorisation of X and Z\n");
   copy_mat(X,work1);
   ret=chol(work1);
   
@@ -402,6 +403,7 @@ int sdp(n,k,C,a,constant_offset,constraints,byblocks,fill,X,y,Z,cholxinv,
       fflush(stdout);
     };
 
+  DEBUGPRINT("sdp: setup complete, entering main iteration loop\n");
   while ((relgap > parameters.objtol) || (relpinfeas > parameters.axtol) || (reldinfeas > parameters.atytol))
 	 {
 
@@ -642,6 +644,7 @@ int sdp(n,k,C,a,constant_offset,constraints,byblocks,fill,X,y,Z,cholxinv,
 	   t1=(double)tp.tv_sec+(1.0e-6)*tp.tv_usec;
 #endif
 
+	   DEBUGPRINT("sdp: iter %d, forming Schur complement (op_o)\n", iter);
 	   op_o(k,constraints,byblocks,Zi,X,O,work1,work2);
 
 #ifdef USEGETTIME

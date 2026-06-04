@@ -68,6 +68,12 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
   int denseblocks;
   int numblocks;
 
+   {
+     char *dbg = getenv("CSDP_DEBUG");
+     if (dbg) csdp_debug = atoi(dbg);
+   }
+   DEBUGPRINT("easy_sdp: n=%d (block dim) k=%d (constraints)\n", n, k);
+
    /*
     *  Initialize the parameters.
     */
@@ -270,6 +276,8 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
    else
      ldam=k;
 
+   DEBUGPRINT("easy_sdp: allocating Schur complement O: ldam=%d (%.1f MB)\n",
+              ldam, (double)sizeof(double)*ldam*ldam/1.0e6);
    O=malloc(sizeof(double)*ldam*ldam);
    if (O == NULL)
      {
@@ -277,6 +285,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
        exit(205);
      };
 
+   DEBUGPRINT("easy_sdp: allocating work matrices (alloc_mat)\n");
    alloc_mat(C,&Zi);
    alloc_mat(C,&dZ);
    alloc_mat(C,&dX);
@@ -466,6 +475,7 @@ int easy_sdp(n,k,C,a,constraints,constant_offset,pX,py,pZ,ppobj,pdobj)
     *  Now, call sdp().
     */
 
+   DEBUGPRINT("easy_sdp: setup complete, entering sdp()\n");
    ret=sdp(n,k,C,a,constant_offset,constraints,byblocks,fill,*pX,*py,*pZ,
 	   cholxinv,cholzinv,ppobj,pdobj,work1,work2,work3,workvec1,
 	   workvec2,workvec3,workvec4,workvec5,workvec6,workvec7,workvec8,

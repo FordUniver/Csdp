@@ -14,6 +14,9 @@ int get_line();
 void countentry();
 int addentry();
 
+/* Definition of the global debug flag (declared in declarations.h). */
+int csdp_debug = 0;
+
 int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
      char *fname;
      int *pn;
@@ -44,6 +47,12 @@ int read_prob(fname,pn,pk,pC,pa,pconstraints,printlevel)
   struct sparseblock *p;
   int *isdiag;
   double *tempdiag;
+
+  {
+    char *dbg = getenv("CSDP_DEBUG");
+    if (dbg) csdp_debug = atoi(dbg);
+  }
+  DEBUGPRINT("read_prob: opening %s\n", fname);
 
   /*
    * This constant allows for up to 500000*20=10,000,000 byte long lines.
@@ -347,11 +356,18 @@ b	       */
       return(1);
     };
 
+  DEBUGPRINT("read_prob: k=%d constraints, nblocks=%d, n=%d (total block dim)\n", *pk, nblocks, *pn);
+  if (csdp_debug >= 2)
+    for (blk=1; blk<=nblocks; blk++)
+      DEBUGPRINT("  block %d: size=%d %s\n", blk, pC->blocks[blk].blocksize,
+                 pC->blocks[blk].blockcategory==DIAG ? "DIAG" : "MATRIX");
+
   /*
-   *  Now, loop through the entries, 
+   *  Now, loop through the entries,
    *  counting entries in the constraint matrices block by block.
    */
 
+  DEBUGPRINT("read_prob: counting entries (pass 1)\n");
   ret=fscanf(fid,"%d %d %d %d %le ",&matno,&blkno,&indexi,&indexj,&ent);
 
   if (ret != 5)
@@ -752,8 +768,9 @@ b	       */
    */
 
   *pconstraints=myconstraints;
-  
+
   fclose(fid);
+  DEBUGPRINT("read_prob: done\n");
   return(0);
 }
 
@@ -900,8 +917,8 @@ void countentry(constraints,matno,blkno,blocksize)
       q->numentries=1;
       q->next=NULL;
       q->entries=NULL;
-      p->iindices=NULL;
-      p->jindices=NULL;
+      q->iindices=NULL;
+      q->jindices=NULL;
       q->blocksize=blocksize;
       /*
        * Now link it into the list.

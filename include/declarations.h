@@ -10,9 +10,21 @@
   Other important includes that we need.
  */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "index.h"
 #include "blockmat.h"
 #include "parameters.h"
+
+/*
+  Runtime debug tracing. Set the environment variable CSDP_DEBUG=1 to trace the
+  read / allocate / solve stages (with sizes) to stderr — handy for localising a crash
+  on a large problem. `csdp_debug` is initialised from the environment at the library
+  entry points (read_prob, easy_sdp); it costs nothing when CSDP_DEBUG is unset.
+ */
+extern int csdp_debug;
+#define DEBUGPRINT(...) \
+  do { if (csdp_debug) { fprintf(stderr, "[csdp] " __VA_ARGS__); fflush(stderr); } } while (0)
 
 /*
   Our own routines.
